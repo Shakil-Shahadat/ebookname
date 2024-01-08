@@ -126,6 +126,11 @@
 		qs( '.ebookFileName' ).value = txt;
 	}
 
+	function copyName()
+	{
+		navigator.clipboard.writeText( qs( '.ebookFileName' ).value );
+	}
+
 </script>
 
 </body>
