@@ -86,6 +86,46 @@
 		return document.querySelector( cls );
 	}
 
+	function generateName()
+	{
+		if ( qs( '.ebookName' ).value === '' )
+		{
+			alert( 'Please enter book name.' );
+			qs( '.ebookName' ).focus();
+			return;
+		}
+
+		if ( qs( '.authors' ).value === '' )
+		{
+			alert( 'Please enter author name(s).' );
+			qs( '.authors' ).focus();
+			return;
+		}
+
+		if ( qs( '.pageNo' ).value === '' )
+		{
+			alert( 'Please enter page number.' );
+			qs( '.pageNo' ).focus();
+			return;
+		}
+
+		let txt = qs( '.ebookName' ).value + ' - ' + qs( '.authors' ).value + ' [ ';
+
+		if ( qs( '.year' ).value !== '' )
+		{
+			txt += qs( '.year' ).value;
+		}
+
+		if ( qs( '.edition' ).value !== '1' )
+		{
+			txt += ', ' + qs( '.edition' ).value + 'E';
+		}
+
+		txt += ', ' + qs( '.pageNo' ).value + 'p ]';
+
+		qs( '.ebookFileName' ).value = txt;
+	}
+
 </script>
 
 </body>
