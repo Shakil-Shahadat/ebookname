@@ -112,17 +112,23 @@
 
 		let txt = qs( '.ebookName' ).value + ' - ' + qs( '.authors' ).value + ' [ ';
 
+		let flag = 0; // A variable that dictates if ', ' needs to be added
+
 		if ( qs( '.year' ).value !== '' )
 		{
 			txt += qs( '.year' ).value;
+			flag = 1;
 		}
 
 		if ( qs( '.edition' ).value !== '1' )
 		{
-			txt += ', ' + qs( '.edition' ).value + 'E';
+			if ( flag === 1 ) txt += ', ';
+			txt += qs( '.edition' ).value + 'E';
+			flag = 1;
 		}
 
-		txt += ', ' + qs( '.pageNo' ).value + 'p ]';
+		if ( flag === 1 ) txt += ', ';
+		txt += qs( '.pageNo' ).value + 'p ]';
 
 		qs( '.ebookFileName' ).value = txt;
 	}
